@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using DepInjShowcase.Logic
-@inject DemoLogic logic
+@inject IDemoLogic logic
+@inject ILogger<Index> logger
 
 <PageTitle>Index</PageTitle>
 
@@ -18,5 +19,7 @@
     protected override void OnInitialized()
     {
         //logic = new();
+        logger.LogInformation("Display values of {Value1} and {Value2}", logic.Value1, logic.Value2);
+
     }
 }
